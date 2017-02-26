@@ -2,11 +2,14 @@ language: node_js
 node_js:
 - '6'
 script: echo 'winning'
+after_success: npm run build
 deploy:
   provider: lambda
+  region: 'eu-west-1'
   function_name: pennies-front-door-dogfood
   role: arn:aws:iam::447737720704:role/pennies-front-door-travis
+  zip: build.zip
   handler_name: index.handler
   access_key_id: AKIAJFSSDGJNEXKK3J6Q
-dd:
+secret_access_key:
   secure: WVJHiw4HVYZ/MIn9boul/as7Ljer6j+0mPd8fnadUEkiOJpxWftEkvcfMZkAjErJSjWEh66Lt9Jpi8PnSoXVKLwzdwdvRONwUaQDP14yV0vtNZDTv1HUGd9talDAQuso3ABiaY9nSatvkWNvLfTAl+kKOpKE44FN9u6h6vguhNS7t3iETey6ERQCH9PvbKxsiQGpzknksFah54eGaZYo74gEbXuA5IHVSgK6hvWWtfJvE++IWn8nRuwbKyCUwLlpHlBd5ui3Glc4UisSXSvSg/iZc96ah5ZDSBmP2dG7RD2PIDncN2t+tA8z6V+kw1d/ozx+5TCB4fQbGv5g09xA3uuSwj7StENsx0Il48SWLpFSmuAvJn+rN/b9k8PzjPZyA/ZL3dvLN34DB12ifS27vxTFZ3cRQbVhI1Fni/am49tO/nTqq69UkaxiS7sWjtTwyf+h6q39If2B+MLaXuMAXe78d8uzm52Vy4dXJXYB66gDHJ7MTrYi1LdQ2aEJJngFc4XBq5pkdCQ8OQaJ0h0CzUtTWY4ohsB8eb3Y6bcYboWHxm/Nc4tBlMOjJmUPt40EQksi9/ApBlhHB9oj3XQUy/DITPTzPmidsnUDkbfWZ4OYAbm9DN3Gg9KpXilUVnKs7jOaAo8ehojRvVdkmB10dHISh9iGGXYBnOd5m0FF5KY=
