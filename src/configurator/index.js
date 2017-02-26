@@ -13,7 +13,7 @@ const envVarOrDie = (name) => {
   if (!process.env[name]) {
     logger.error(`Configurator: no env var ${name}`)
 
-    throw Error(`Configurator: no env var ${name}`)
+    throw Error('Missing env var in the configurator')
   }
 
   return process.env[name]

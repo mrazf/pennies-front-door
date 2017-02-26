@@ -28,7 +28,7 @@ describe('The lambda handler', () => {
     })
   })
 
-  fit('should return a message if the item isn\'t spending', (done) => {
+  it('should return a message if the item isn\'t spending', (done) => {
     const event = {
       body: { data: { include_in_spending: false } }
     }
