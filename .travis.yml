@@ -10,7 +10,6 @@ deploy:
   function_name: pennies-front-door-dogfood
   role: arn:aws:iam::447737720704:role/pennies-front-door-travis
   zip: build.zip
-  handler_name: index.handler
   access_key_id: AKIAJ5NTE3T6KHNPK5KA
   secret_access_key:
     secure: UTz2q6eUzFhR9bKADrO5gjhWZsNyazC1HXAT1UEzjY96CHPxBqxp3Mk3fix83xoQm3o/1GSttsAk+5ZtZP7yhVZAS6PVaM5ATPGomMAizkLzKA1UwLXLIYBKHHnV3YbOf+ycchJHiB1RUhTHcpzD6iXthsnfdYx0o9JH93yMbDNLjw4ZljXLjGJe6Sh7b22o/wI+0P0NY26Z0U58qTWg1+qqSIOKxi6hqImX2x0byKvZJtKdc+kIX67bh3yCf3MYDT1Ni6knGc73gStKpjJEOHLKIex5z80TqnWzni7m4EYLOsDcGRbkat5HCi3vBb++KqasTJoNY720XrVaatVkq6Bx2e9uxVsIySK1Rq8CKbORCPSDawHa4b7UIPcSSVJescatF8kux69+AYRRvdyMSCE2d4Nlv43Ck7tfgP4re/Fud2QHQN6O6SQM4WGfnRGca3gBr9wZA/YWs+w1OKH+Y0jtL+93nChbwbNeXm9xda4EBc6LJizWvanbFz+EIyqCmyPgm//2AZcVjOogJ8ZIKTOeNu8I/vH7QatEj5R63MsYl9zEU+3fldsTiOJGFQeZLD2O/G85U4/1aVuzwSCDahFqJPf5D+fYuhshIG98Mlg2l+tSEkQFIMxKl/lgsoLfhWN9gX0tRfC2gJbBJcoBAHo0pZbz19y36VW9BQeL4wA=
