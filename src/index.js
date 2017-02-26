@@ -34,7 +34,7 @@ exports.handler = (event, context, callback) => {
   if (event.httpMethod === 'POST') {
     const data = parseBody(event)
     console.log({ headers, statusCode: 400, body: data.error })
-    if (data.error) return callback({ headers, statusCode: 400, body: data.error })
+    if (data.error) return callback({ headers, statusCode: 400, body: new Error(data.error) })
     if (!data.include_in_spending) return callback(null, { headers, statusCode: 200, body: { requiredProcessing: false } })
 
     const transaction = formatter(data)
