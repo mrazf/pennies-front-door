@@ -6,6 +6,9 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
+    "prebuild": "rm -rf build build.zip",
+    "build": "babel src --out-dir build --copy-files --ignore  **/*-test.js && cp package.json build && cd build && npm install --no-optional --production",
+    "postbuild": "zip ../build.zip ./*",
     "test": "jasmine JASMINE_CONFIG_PATH=jasmine-config.json"
   },
   "babel": {
@@ -41,6 +44,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.1.8",
     "jasmine": "^2.5.3",
+    "lambda-local": "^1.4.1",
     "proxyquire": "^1.7.11"
   },
   "optionalDependencies": {
