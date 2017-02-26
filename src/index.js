@@ -45,7 +45,7 @@ exports.handler = (event, context, callback) => {
         callback(null, { headers, statusCode: 200, body: { description: '' } })
       })
       .catch(error => {
-        callback(null, { headers, statusCode: 500, body: JSON.stringify({ error: error.toString }) })
+        callback(null, { headers, statusCode: 500, body: JSON.stringify({ error: error.toString() }) })
       })
   }
 }

@@ -1,4 +1,4 @@
-const formatter = require('../internal-format')
+const { formatter } = require('../internal-format')
 const real = require('../../stubs/transaction-created-real').data
 const example = require('../../stubs/transaction-created').data
 
