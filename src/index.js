@@ -31,20 +31,22 @@ const parseBody = ({ body }) => {
 }
 
 exports.handler = (event, context, callback) => {
-  const data = parseBody(event)
-  if (data.error) return callback({ headers, statusCode: 400, body: data.error })
-  if (!data.include_in_spending) return callback(null, { headers, statusCode: 200, body: { requiredProcessing: false } })
+  if (event.httpMethod === 'POST') {
+    const data = parseBody(event)
+    if (data.error) return callback({ headers, statusCode: 400, body: data.error })
+    if (!data.include_in_spending) return callback(null, { headers, statusCode: 200, body: { requiredProcessing: false } })
 
-  const transaction = formatter(data)
+    const transaction = formatter(data)
 
-  configurator()
-    .then(config => sheets({ config, transaction }))
-    .then(response => {
-      callback(null, { headers, statusCode: 200, body: { description: '' } })
-    })
-    .catch(error => {
-      logger.error(`Handler: ${error}`)
+    configurator()
+      .then(config => sheets({ config, transaction }))
+      .then(response => {
+        callback(null, { headers, statusCode: 200, body: { description: '' } })
+      })
+      .catch(error => {
+        logger.error(`Handler: ${error}`)
 
-      callback({ headers, statusCode: 500, body: error })
-    })
+        callback({ headers, statusCode: 500, body: error })
+      })
+  }
 }
