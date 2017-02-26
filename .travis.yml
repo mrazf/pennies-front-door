@@ -1,10 +1,11 @@
 language: node_js
 node_js:
-- 'nodejs4.3'
+- '6'
 script: echo 'winning'
 after_success: npm run build
 deploy:
   provider: lambda
+  runtime: nodejs4.3
   region: eu-west-1
   function_name: pennies-front-door-dogfood
   role: arn:aws:iam::447737720704:role/pennies-front-door-travis
