@@ -32,7 +32,7 @@ const parseBody = ({ body }) => {
 
 exports.handler = (event, context, callback) => {
   const data = parseBody(event)
-  if (data.error) return callback({ headers, statusCode: 400, body: data })
+  if (data.error) return callback({ headers, statusCode: 400, body: data.error })
   if (!data.include_in_spending) return callback(null, { headers, statusCode: 200, body: { requiredProcessing: false } })
 
   const transaction = formatter(data)
