@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - '6'
+script: echo 'winning'
 deploy:
   provider: lambda
   function_name: pennies-front-door-dogfood
