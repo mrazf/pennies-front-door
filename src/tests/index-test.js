@@ -15,7 +15,7 @@ const lambdaBox = (lambda, event) => {
 }
 
 describe('The lambda handler', () => {
-  fit('should add a valid transaction to google sheets', (done) => {
+  it('should add a valid transaction to google sheets', (done) => {
     const event = {
       body: require('../../stubs/transaction-created-real.json')
     }
