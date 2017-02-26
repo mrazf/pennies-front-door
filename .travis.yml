@@ -5,11 +5,11 @@ script: echo 'winning'
 after_success: npm run build
 deploy:
   provider: lambda
-  region: eu-west-1
-  function_name: pennies-front-door-dogfood
-  role: arn:aws:iam::447737720704:role/pennies-front-door-travis
+  region: "eu-west-1"
+  function_name: "pennies-front-door-dogfood"
+  role: "arn:aws:iam::447737720704:role/pennies-front-door-travis"
   zip: build.zip
-  handler_name: index.handler
-  access_key_id: AKIAJFSSDGJNEXKK3J6Q
+  handler_name: "index.handler"
+  access_key_id: "AKIAJFSSDGJNEXKK3J6Q"
   secret_access_key:
     secure: "fdiu7oaYo5H7jBHou7bm5QD5wAeUTO4+KhUUm/safKNT4gwkZ4D+WQGNotqvqaMjv7+v/z0vURyaZd669MglrNHPHbSbcayo5vGgLmYT17EC4qO1kS+FurYF2lVV8Y2YHF6qYpBbUD1Z+6/boFjzCTa4Lk1ahM49mdLSxEccbysOA++5lteMwDUKS8b3QpJuuW07gLwiOrWzim7vlOUoJ5mi5CorUInl85Y5AHdqyotCxmA+zagHPKrHfEyUNMILr36y+sy6pqWClYbHpiTCh9QOgJ1G0/vWlSXY4E3cmwRianA5PfgIpoh30gKtpb3GhHtmm7mKtHHNW+ao5r80I1cNPUnZKXy/asgVIxPpFHz9nigIdvr9AA44vyWmkyLj+BjBJpg0b3P9RP/tVjEPEWPJXINJbLAXKSIXe7lEYGN8Ok3Frilp8R/qtttYbCOUgdfJwIOylYeFKDUZS1SISC3zHTlcUUQpKEJ9eDFK4VRLa26W7FkzQ2I2ZwJD4g1WZ36aUE5MAuINocFeJ0qw8UKwe0uMNuquSPHnWTDqdSHIE/YxM1EBnamowgXlGdnAnEXW0vrqdVefCzmMwfoSevd+/wt0wARfIbeqi9RS59VlR3Ilm6ji9g/1P4ihDi5+J2R0aYVDtHyapmg5jfbvAUiXptsjbS5LDUiNqzvX+Jg="
