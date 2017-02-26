@@ -17,7 +17,7 @@ const parseBody = ({ body }) => {
     parsed = typeof body === 'object' ? body : JSON.parse(body)
   } catch (err) {
     logger.warn(`Handler: Unparsable body ${body} with ${err}`)
-    console.log('were here')
+
     return { error: 'Unparsable body' }
   }
 
@@ -47,7 +47,7 @@ exports.handler = (event, context, callback) => {
       .catch(error => {
         logger.error(`Handler: ${error}`)
 
-        callback({ headers, statusCode: 500, body: error })
+        callback(null, { headers, statusCode: 500, body: error })
       })
   }
 }
