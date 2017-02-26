@@ -8,6 +8,7 @@ deploy:
   runtime: nodejs4.3
   region: eu-west-1
   function_name: pennies-front-door-dogfood
+  handler_name: handler
   role: arn:aws:iam::447737720704:role/pennies-front-door-travis
   zip: build.zip
   access_key_id: AKIAJ5NTE3T6KHNPK5KA
