@@ -1,7 +1,7 @@
 const handler = require('../').handler
 
 const lambdaBox = (lambda, event) => {
-  const mergedEvent = { ...event }
+  const mergedEvent = { httpMethod: 'POST', ...event }
   const context = {}
 
   return new Promise((resolve, reject) => {
@@ -28,7 +28,7 @@ describe('The lambda handler', () => {
     })
   })
 
-  it('should return a message if the item isn\'t spending', (done) => {
+  fit('should return a message if the item isn\'t spending', (done) => {
     const event = {
       body: { data: { include_in_spending: false } }
     }

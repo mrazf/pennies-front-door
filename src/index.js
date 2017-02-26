@@ -33,8 +33,8 @@ const parseBody = ({ body }) => {
 exports.handler = (event, context, callback) => {
   if (event.httpMethod === 'POST') {
     const data = parseBody(event)
-    console.log({ headers, statusCode: 400, body: data.error })
-    if (data.error) return callback(JSON.stringify({ headers, statusCode: 400, body: data.error }))
+
+    if (data.error) return callback({ headers, statusCode: 400, body: data.error })
     if (!data.include_in_spending) return callback(null, { headers, statusCode: 200, body: { requiredProcessing: false } })
 
     const transaction = formatter(data)
@@ -45,8 +45,7 @@ exports.handler = (event, context, callback) => {
         callback(null, { headers, statusCode: 200, body: { description: '' } })
       })
       .catch(error => {
-        console.log(JSON.stringify(error))
-        callback(null, { headers, statusCode: 500, body: JSON.stringify(error) })
+        callback(null, { headers, statusCode: 500, body: error.toString() })
       })
   }
 }
